@@ -3,9 +3,32 @@
 <head >
     <meta charset = "UTF-8" >
     <title >SBA 316 DOM</title >
+    <link rel = "stylesheet" href = "css/form_styles.css" >
 </head >
 <body >
+<header id="program"></header>
+<main >
+    <form id="inputForm">
+        <div id="inputContainer">
+            <input type="text" placeholder="Enter input" required>
+        </div>
 
+
+
+
+        <button type="button" onclick="addInput()">Add Field</button>
+        <button type="button" onclick="removeInput()">Remove Field</button>
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <h3>Results:</h3>
+    <div id="outputFormContainer">
+        <form id="outputForm">
+
+        </form>
+    </div>
+
+</main >
 
 <script src = "js/app.js" ></script >
 </body >
