@@ -45,7 +45,26 @@ class Profile {
 
   }// end createProfile
 
-}// Create user profile
+  // Function to display profiles in the container
+  static displayProfiles(profiles) {
+    const profilesContainer = document.getElementById('get_user_profiles_container');
+    profilesContainer.innerHTML = ''; // Clear previous content
+
+    profiles.forEach(profile => {
+      const profileDiv = document.createElement('div');
+      profileDiv.textContent = `First Name: ${profile.first_name}, Last Name: ${profile.last_name}, Sex: ${profile.sex}, DOB: ${profile.dob}`;
+      profilesContainer.appendChild(profileDiv);
+    });
+  }
+
+}//Event listener, create user profile
 document.getElementById('create_user_profile').
          addEventListener('click', Profile.createProfile);
 
+// Event listener, get user profiles
+document.getElementById('get_user_profiles').
+         addEventListener('click', (e) => {
+           e.preventDefault(); // prevents data retrieved from disappearing
+           // from page reload
+           Profile.displayProfiles(Profile.profiles);
+         });
