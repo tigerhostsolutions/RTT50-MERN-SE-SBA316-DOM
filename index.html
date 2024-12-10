@@ -6,19 +6,29 @@
     <link rel = "stylesheet" href = "css/form_styles.css" >
 </head >
 <body >
-<header id="program"></header>
+<header id="Profile"></header>
 <main >
     <form id="inputForm">
+
         <div id="inputContainer">
-            <input type="text" placeholder="Enter input" required>
+            <label for = "first_name" >First Name: </label >
+            <input type="text" placeholder="Enter first name" required
+                                                        id="first_name">
+            <label for = "last_name" >Last Name: </label >
+            <input type="text" placeholder="Enter last name" required
+                                                       id="last_name">
+            <label for = "sex" >Sex: </label >
+            <select required id="sex" name="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <br ><br >
+            <label for = "dob" >Date of Birth: </label >
+            <input type="date" required id="dob">
         </div>
-
-
-
-
-        <button type="button" onclick="addInput()">Add Field</button>
-        <button type="button" onclick="removeInput()">Remove Field</button>
-        <button type="button" onclick="submitForm()">Submit</button>
+        <br >
+        <button type="button" onclick="createProfile()">Create Profile</button>
     </form>
 
     <h3>Results:</h3>
@@ -30,6 +40,6 @@
 
 </main >
 
-<script src = "js/app.js" ></script >
+<script src = "js/Profile.js" ></script >
 </body >
 </html >
