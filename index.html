@@ -6,49 +6,17 @@
     <link rel = "stylesheet" href = "css/form_styles.css" >
 </head >
 <body >
-<header id="Profile"></header>
+<header id = "User Profile" ></header >
 <main >
-    <form id="profileForm">
-        <div id="profileContainer">
-            <label for = "first_name" >First Name: </label >
-            <input type="text" placeholder="Enter first name" required
-                                                        id="first_name">
-            <label for = "last_name" >Last Name: </label >
-            <input type="text" placeholder="Enter last name" required
-                                                       id="last_name">
-            <label for = "sex" >Sex: </label >
-            <select required id="sex" name="sex">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-            </select>
-            <br ><br >
-            <label for = "dob" >Date of Birth: </label >
-            <input type="date" required id="dob">
-        </div>
-        <br >
-        <button type="button" id="create_profile">Create Profile</button>
-    </form>
 
-    <form>
-    <fieldset id="show_profile">
-        <legend></legend>
-        <div>
-            <label>First Name:</label> <span id="show_first_name"></span>
-        </div>
-        <div>
-            <label>Last Name:</label> <span id="show_last_name"></span>
-        </div>
-        <div>
-            <label>Sex:</label> <span id="show_sex"></span>
-        </div>
-        <div>
-            <label>DOB:</label> <span id="show_dob"></span>
-        </div>
-    </fieldset>
-    </form >
-</main >
+    <div w3-include-html="user_profile_form.html"></div>
 
-<script src = "js/profile.js" ></script >
+</main>
+
+<!-- js files -->
+<script src = "js/include.js" ></script >
+<script>
+    includeHTML();
+</script>
 </body >
 </html >

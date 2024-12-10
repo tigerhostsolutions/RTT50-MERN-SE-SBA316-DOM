@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang = "en" >
+<head >
+    <meta charset = "UTF-8" >
+    <title >SBA 316 DOM</title >
+    <link rel = "stylesheet" href = "css/form_styles.css" >
+</head >
+<body >
+<header id = "User Profile" ></header >
+<main >
+    <form id = "user_profile_form" >
+        <div id = "user_profile_container" >
+            <label for = "user_first_name" >First Name: </label >
+            <input type = "text"
+                   placeholder = "Enter first name"
+                   required
+                   id = "user_first_name"
+                   name = "user_first_name" >
+            <label for = "user_last_name" >Last Name: </label >
+            <input type = "text"
+                   placeholder = "Enter last name"
+                   required
+                   id = "user_last_name"
+                   name = "user_last_name" >
+            <label for = "user_sex" >Sex: </label >
+            <select required
+                    id = "user_sex"
+                    name = "user_sex" >
+                <option value = "Male" >Male</option >
+                <option value = "Female" >Female</option >
+                <option value = "Other" >Other</option >
+            </select >
+            <br ><br >
+            <label for = "user_dob" >Date of Birth: </label >
+            <input type = "date"
+                   required
+                   id = "user_dob"
+                   name = "user_dob" >
+        </div >
+        <br >
+        <button type = "button" id = "create_user_profile" >Create UserProfile</button >
+    </form >
+
+    <form >
+        <fieldset id = "show_user_profile" >
+            <legend ></legend >
+            <div >
+                <label >First Name:</label > <span id = "show_user_first_name" ></span >
+            </div >
+            <div >
+                <label >Last Name:</label > <span id = "show_user_last_name" ></span >
+            </div >
+            <div >
+                <label >Sex:</label > <span id = "show_user_sex" ></span >
+            </div >
+            <div >
+                <label >DOB:</label > <span id = "show_user_dob" ></span >
+            </div >
+        </fieldset >
+    </form >
+</main >
+
+<script src = "js/Profile.js" ></script >
+</body >
+</html >

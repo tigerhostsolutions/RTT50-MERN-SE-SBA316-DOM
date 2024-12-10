@@ -16,3 +16,6 @@ input[type="text"], input[type="email"] {
 input[type="submit"] {
     padding: 8px 16px;
 }
+fieldset {
+    display: none;
+}
