@@ -8,9 +8,8 @@
 <body >
 <header id="Profile"></header>
 <main >
-    <form id="inputForm">
-
-        <div id="inputContainer">
+    <form id="profileForm">
+        <div id="profileContainer">
             <label for = "first_name" >First Name: </label >
             <input type="text" placeholder="Enter first name" required
                                                         id="first_name">
@@ -19,27 +18,37 @@
                                                        id="last_name">
             <label for = "sex" >Sex: </label >
             <select required id="sex" name="sex">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
             </select>
             <br ><br >
             <label for = "dob" >Date of Birth: </label >
             <input type="date" required id="dob">
         </div>
         <br >
-        <button type="button" onclick="createProfile()">Create Profile</button>
+        <button type="button" id="create_profile">Create Profile</button>
     </form>
 
-    <h3>Results:</h3>
-    <div id="outputFormContainer">
-        <form id="outputForm">
-
-        </form>
-    </div>
-
+    <form>
+    <fieldset id="show_profile">
+        <legend></legend>
+        <div>
+            <label>First Name:</label> <span id="show_first_name"></span>
+        </div>
+        <div>
+            <label>Last Name:</label> <span id="show_last_name"></span>
+        </div>
+        <div>
+            <label>Sex:</label> <span id="show_sex"></span>
+        </div>
+        <div>
+            <label>DOB:</label> <span id="show_dob"></span>
+        </div>
+    </fieldset>
+    </form >
 </main >
 
-<script src = "js/Profile.js" ></script >
+<script src = "js/profile.js" ></script >
 </body >
 </html >
