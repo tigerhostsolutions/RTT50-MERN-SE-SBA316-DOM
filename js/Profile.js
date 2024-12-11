@@ -6,26 +6,44 @@ class Profile {
     this.dob = dob;
   }
 
-// Array to hold all profile
+  static handleFieldValidation(input) {
+    if (input.validity.valid) {
+      input.classList.remove('is-invalid');
+      input.classList.add('is-valid');
+    }
+    else {
+      input.classList.remove('is-valid');
+      input.classList.add('is-invalid');
+    }
+  }
+
+  static validateForm(formElement) {
+    if (!formElement.checkValidity()) {
+      formElement.reportValidity();
+      return false;
+    }
+    return true;
+  }
+
   static profiles = [];
 
-  static createProfile() {
+  static createProfile(e) {
+    e.preventDefault(); // Prevent page submission
 
     const form = document.getElementById('create_user_profile_form');
 
-    // Get input from the frontend
-    const first_name = document.getElementById('user_first_name').value;
-    const last_name = document.getElementById('user_last_name').value;
-    const sex = document.getElementById('user_sex').value;
-    const dob = document.getElementById('user_dob').value;
+    // Validate the full form on submit
+    if (!Profile.validateForm(form)) {
+      return; // Exit if the form is invalid
+    }
 
-    // Create the profile object.
+    const first_name = form.querySelector('[name="user_first_name"]')?.value || '';
+    const last_name = form.querySelector('[name="user_last_name"]')?.value || '';
+    const sex = form.querySelector('[name="user_sex"]')?.value || '';
+    const dob = form.querySelector('[name="user_dob"]')?.value || '';
+
     const user_profile = new Profile(first_name, last_name, sex, dob);
-
-    // Log profile information to the console.
     console.log(user_profile);
-
-    // Display profile information on the frontend
     document.getElementById(
         'show_user_first_name').textContent = user_profile.first_name;
     document.getElementById(
@@ -34,18 +52,18 @@ class Profile {
     document.getElementById('show_user_dob').textContent = user_profile.dob;
     document.getElementById('show_user_profile').style.display = 'block';
 
-    // Add new profile to the array
     Profile.profiles.push(user_profile);
-
-    // Log profiles to the console
+    localStorage.setItem('profiles', JSON.stringify(Profile.profiles));
     console.log(Profile.profiles);
 
-    // Reset form inputs
     form.reset();
+
+    form.querySelectorAll('input, select').forEach(input => {
+      input.classList.remove('is-valid', 'is-invalid');
+    });
 
   }// end createProfile
 
-  // Function to display profiles in the container
   static renderProfiles(profiles) {
     const profiles_container = document.getElementById('profiles_container');
     profiles_container.innerHTML = ''; // Clear previous content
@@ -62,14 +80,21 @@ class Profile {
       profiles_container.appendChild(clone);
     });
   }
-
 }// end Profile
 
-//Event listener, create user profile
+const savedProfiles = JSON.parse(localStorage.getItem('profiles')) || [];
+Profile.profiles.push(...savedProfiles);
+
+document.querySelectorAll('input, select').
+         forEach((input) => {
+           input.addEventListener('input', () => {
+             Profile.handleFieldValidation(input);
+           });
+         });
+
 document.getElementById('create_user_profiles_button').
          addEventListener('click', Profile.createProfile);
 
-// Event listener, get user profiles
 document.getElementById('get_user_profiles_button').
          addEventListener('click', (e) => {
            e.preventDefault(); // prevents data retrieved from disappearing
