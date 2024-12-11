@@ -3,63 +3,116 @@
 <head >
     <meta charset = "UTF-8" >
     <title >SBA 316 DOM</title >
+    <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" >
     <link rel = "stylesheet" href = "css/form_styles.css" >
 </head >
-<body >
-<header id = "User Profile" ></header >
-<main >
-    <form id = "user_profile_form" >
-        <div id = "user_profile_container" >
-            <label for = "user_first_name" >First Name: </label >
-            <input type = "text"
-                   placeholder = "Enter first name"
-                   required
-                   id = "user_first_name"
-                   name = "user_first_name" >
-            <label for = "user_last_name" >Last Name: </label >
-            <input type = "text"
-                   placeholder = "Enter last name"
-                   required
-                   id = "user_last_name"
-                   name = "user_last_name" >
-            <label for = "user_sex" >Sex: </label >
-            <select required
-                    id = "user_sex"
-                    name = "user_sex" >
-                <option value = "Male" >Male</option >
-                <option value = "Female" >Female</option >
-                <option value = "Other" >Other</option >
-            </select >
-            <br ><br >
-            <label for = "user_dob" >Date of Birth: </label >
-            <input type = "date"
-                   required
-                   id = "user_dob"
-                   name = "user_dob" >
-        </div >
-        <br >
-        <button type = "button" id = "create_user_profile" >Create UserProfile</button >
-    </form >
+<body class = "container" >
+<div class = "row" >
+    <header id = "User Profile" class = "col-12" >
+        <button id = "get_user_profiles_button" class = "bg-success" >Show All User Profiles</button >
+        <button id = "delete_user_profiles_button" class = "bg-danger" >Delete User Profile</button >
+    </header >
+</div >
+<div class = "row" >
+    <main class = "col-12" >
+        <div class = "row" >
+            <div class = "col-4" >
+                <form id = "create_user_profile_form" >
+                    <div id = "create_user_profile_container" >
+                        <label for = "user_first_name" >First Name: </label >
+                        <input type = "text"
+                               placeholder = "Enter first name"
+                               required
+                               id = "user_first_name"
+                               name = "user_first_name" >
+                        <label for = "user_last_name" >Last Name: </label >
+                        <input type = "text"
+                               placeholder = "Enter last name"
+                               required
+                               id = "user_last_name"
+                               name = "user_last_name" >
+                        <label for = "user_dob" >Date of Birth: </label >
+                        <input type = "date"
+                               required
+                               id = "user_dob"
+                               name = "user_dob" >
+                        <label for = "user_sex" >Sex: </label >
+                        <select required
+                                id = "user_sex"
+                                name = "user_sex" >
+                            <option value = "Male" >Male</option >
+                            <option value = "Female" >Female</option >
+                            <option value = "Other" >Other</option >
+                        </select >
+                    </div >
+                    <br >
+                    <button id = "create_user_profiles_button" class = "bg-primary" >Create User Profile</button >
+                    <button id = "update_user_profiles_button" class = "bg-warning" >Update User Profile</button >
+                </form >
+            </div >
 
-    <form >
-        <fieldset id = "show_user_profile" >
-            <legend ></legend >
-            <div >
-                <label >First Name:</label > <span id = "show_user_first_name" ></span >
+            <div class = "col-4" >
+                <form id = "show_user_profile_form" >
+                    <fieldset id = "show_user_profile" >
+                        <legend ></legend >
+                        <div >
+                            <label >First Name:</label >
+                            <span id = "show_user_first_name" ></span >
+                        </div >
+                        <div >
+                            <label >Last Name:</label >
+                            <span id = "show_user_last_name" ></span >
+                        </div >
+                        <div >
+                            <label >Sex:</label >
+                            <span id = "show_user_sex" ></span >
+                        </div >
+                        <div >
+                            <label >DOB:</label >
+                            <span id = "show_user_dob" ></span >
+                        </div >
+                    </fieldset >
+                </form >
             </div >
-            <div >
-                <label >Last Name:</label > <span id = "show_user_last_name" ></span >
+
+            <div class = "col-4" >
+                <form >
+                    <template id = "profile_template" >
+                        <div >
+                            <label >First Name:</label >
+                            <span class = "first_name" ></span >
+                        </div >
+                        <div >
+                            <label >Last Name:</label >
+                            <span class = "last_name" ></span >
+                        </div >
+                        <div >
+                            <label >Sex:</label >
+                            <span class = "sex" ></span >
+                        </div >
+                        <div >
+                            <label >DOB:</label >
+                            <span class = "dob" ></span >
+                        </div >
+                    </template >
+
+                    <div id = "profiles_container" ></div >
+                </form >
             </div >
-            <div >
-                <label >Sex:</label > <span id = "show_user_sex" ></span >
-            </div >
-            <div >
-                <label >DOB:</label > <span id = "show_user_dob" ></span >
-            </div >
-        </fieldset >
-    </form >
-</main >
+        </div >
+    </main >
+</div >
+<div class = "row" >
+    <footer class = "col-12" >
+        &copy; 2024. Profile Creator | TigerHost Solutions | All rights reserved.
+    </footer >
+</div >
+
+<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity = "sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin = "anonymous" ></script >
 
 <script src = "js/Profile.js" ></script >
+
 </body >
 </html >

@@ -11,7 +11,7 @@ class Profile {
 
   static createProfile() {
 
-    const form = document.getElementById('user_profile_form');
+    const form = document.getElementById('create_user_profile_form');
 
     // Get input from the frontend
     const first_name = document.getElementById('user_first_name').value;
@@ -46,25 +46,33 @@ class Profile {
   }// end createProfile
 
   // Function to display profiles in the container
-  static displayProfiles(profiles) {
-    const profilesContainer = document.getElementById('get_user_profiles_container');
-    profilesContainer.innerHTML = ''; // Clear previous content
+  static renderProfiles(profiles) {
+    const profiles_container = document.getElementById('profiles_container');
+    profiles_container.innerHTML = ''; // Clear previous content
+
+    const template = document.getElementById('profile_template');
 
     profiles.forEach(profile => {
-      const profileDiv = document.createElement('div');
-      profileDiv.textContent = `First Name: ${profile.first_name}, Last Name: ${profile.last_name}, Sex: ${profile.sex}, DOB: ${profile.dob}`;
-      profilesContainer.appendChild(profileDiv);
+      const clone = document.importNode(template.content, true);
+      clone.querySelector('.first_name').textContent = profile.first_name;
+      clone.querySelector('.last_name').textContent = profile.last_name;
+      clone.querySelector('.sex').textContent = profile.sex;
+      clone.querySelector('.dob').textContent = profile.dob;
+
+      profiles_container.appendChild(clone);
     });
   }
 
-}//Event listener, create user profile
-document.getElementById('create_user_profile').
+}// end Profile
+
+//Event listener, create user profile
+document.getElementById('create_user_profiles_button').
          addEventListener('click', Profile.createProfile);
 
 // Event listener, get user profiles
-document.getElementById('get_user_profiles').
+document.getElementById('get_user_profiles_button').
          addEventListener('click', (e) => {
            e.preventDefault(); // prevents data retrieved from disappearing
            // from page reload
-           Profile.displayProfiles(Profile.profiles);
+           Profile.renderProfiles(Profile.profiles);
          });

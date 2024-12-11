@@ -1,9 +1,9 @@
 form {
-    margin: 20px;
+    margin: 20px auto;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 300px;
+    width: 90%;
 }
 
 input[type="text"], input[type="email"] {
@@ -18,4 +18,19 @@ input[type="submit"] {
 }
 fieldset {
     display: none;
+}
+
+body {
+    background-color: antiquewhite;
+    background-image: url('/images/red-clouds.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main {
+    background-color: rgba(255,255,255,.4);
+}
+
+header, footer {
+    margin: 20px auto;
 }
